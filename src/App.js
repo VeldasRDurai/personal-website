@@ -1,45 +1,59 @@
-import React , { useState } from "react";
+// import React, { useReducer } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import veldasImg from "./veldas.jpg";
+
+import GlobalState from "./GlobalState";
+import NavBar from "./components/NavBar/NavBar";
+import WriteSpace from "./components/WriteSpace/WriteSpace";
+import OutputSpace from "./components/OutputSpace/OutputSpace";
+import FooterBar from "./components/FooterBar/FooterBar";
+import PopUp from "./components/PopUp/PopUp";
+
+// export const WriteContent = React.createContext();
+// export const DispatchWriterContent = React.createContext();
+
+// const reduceWriteContent = ( writeContent , action ) => {
+//   switch(action.type){
+//     case "ABOUT ME":
+//       return "This is ABOUT ME" ;
+//     case "DETAILS" :
+//       return "This is somthing else" ;
+//     default :
+//       return writeContent ;
+//   }
+// }
 
 const Div = styled.div`
+  background-color:#000d;  
+  height:100vh;
   width:100vw;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  &>div{width:100%;}
-  >:nth-child(1){
-    height:15vh;
-    background-color:white;
-  }
-  >:nth-child(2){
-    display:flex;
-    justify-content:center;
-    >:nth-child(1){
-      border-radius:10px;
-      width:90vw;
-      height:60vh;
-      object-fit:cover;
-      object-position:50% ${({scrolled}) => scrolled < 100 ?  (scrolled)+"%" : "100%" };
-    }
-  }
+  position:relative;
+  font-family: 'Kelly Slab', cursive;
+  user-select: none;
 `;
-// 
-function App() {
-  const [ scrolled , setScrolled ] = useState(0);
-  window.onscroll = () => {
-    console.log(document.documentElement.scrollTop);
-    setScrolled(document.documentElement.scrollTop);
-  };
+
+const App = () => {
+
+  // const [ writeContent , dispatchWriteContent ] = useReducer( reduceWriteContent , "Nothing" );
+  const [ run , setRun ] = useState(false);
   return (
-    <Div scrolled={scrolled} >
-      <div>{"VELDAS R DURAI"}</div>
-      <div><img src={veldasImg} alt={"veldas"}/></div>
-      {"Hello World"}
-      <div style={{height:"1000px",backgroundColor:"brown"}}>qssqsq</div>
+    <Div> 
+      {/* <WriteContent.Provider value={writeContent} >
+        <DispatchWriterContent.Provider value={dispatchWriteContent} > */}
+        <GlobalState>
+          <NavBar setRun={setRun} />
+          <WriteSpace />
+          <OutputSpace run={run} />
+          <FooterBar />
+          <PopUp />
+        </GlobalState>
+        {/* </DispatchWriterContent.Provider>
+      </WriteContent.Provider> */}
     </Div>
   );
 } 
-
 export default App;
