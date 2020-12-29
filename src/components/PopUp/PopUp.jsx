@@ -57,8 +57,8 @@ const PopUp = () => {
         <Div showPopUp={showPopUp} >
             <div> 
                 <div>
-                    <div> Click Run to See OutPut </div>
-                    {/* <div> version 1.0 </div> */}
+                    {/* <div> Click Run to See OutPut </div> */}
+                    <div> Version 1.0 </div>
                     <div> Copyright (C) 2020 by  </div>
                     <div> Ramesh Exploida , Global Inc. </div>
                     <div onClick={ () => setShowPopUp(false) }>OK</div>

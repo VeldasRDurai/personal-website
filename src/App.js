@@ -33,7 +33,7 @@ const Div = styled.div`
   justify-content:center;
   position:relative;
   font-family: 'Kelly Slab', cursive;
-  user-select: none;
+  // user-select: none;
 `;
 
 const App = () => {
