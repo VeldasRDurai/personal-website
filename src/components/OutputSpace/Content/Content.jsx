@@ -6,13 +6,13 @@ import { WriteContent } from "../../../GlobalState";
 const Div = styled.div`
     margin:10px;
     padding: 5px 15px;
-    font-weight:500; 
+    font-weight:900; 
     height:168px;
     width:880px;
     border: 2px solid #0000af;
     box-sizing:border-box;
     overflow:auto;
-
+    font-family:fangsong;
 `;
 
 const Content = () => {
