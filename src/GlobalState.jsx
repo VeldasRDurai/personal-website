@@ -42,22 +42,22 @@ const reduceWriteContent = ( writeContent , action ) => {
         //     } ;
         case "LINKS" :
             return {
-                input  : "Print",
+                input  : "Print links",
                 output : " Linked In : https://www.linkedin.com/in/veldas-r-durai \nGitHub : https://github.com/VeldasRDurai/",
             } ;
         case "ADDRESS":
             return {
-                input  : "Print",
+                input  : "Print address",
                 output : "Karaveetil(H), Chitrapuzha, Thripunithura, Eranakulam, India",
             } ;
         case "CONTACT NO":
             return {
-                input  : "Print",
+                input  : "Print contact no",
                 output : "(+91) 9745715512",
             } ;
         case "SOCIAL ID":
             return {
-                input  : "Print",
+                input  : "Print social id",
                 output : "None",
             } ;
         default :
