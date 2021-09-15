@@ -18,7 +18,7 @@ const NavElement = ({ value , dropValues , setRun }) => {
     return(
         <Div onMouseEnter={ () => setShowDropdown(true) } 
             onMouseLeave={ () => setShowDropdown(false) } 
-            onClick = { () => value === "Run" && setRun(true) } >
+            onClick = { () => value === "≡" && setRun(true) } >
 
             <span>{ value[0].toUpperCase() }</span>{ value.slice(1).toLowerCase() }
             { showDropdown && (dropValues.length !== 0) && 

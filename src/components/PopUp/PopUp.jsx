@@ -46,10 +46,11 @@ const Div = styled.div`
     }
 `;
 
-const PopUp = () => {
+const PopUp = ({ run }) => {
     const { input } = useContext( WriteContent );
     const [ showPopUp , setShowPopUp ] = useState( false );
     const [ dontShowAgain , setDontShowAgain ] = useState(false);
+    useEffect( () => run && setShowPopUp(true), [ run ] )
     useEffect( () => {    
         !dontShowAgain && input !== "Hello World" && setShowPopUp(true); 
     } , [ input , dontShowAgain ]);
@@ -57,10 +58,9 @@ const PopUp = () => {
         <Div showPopUp={showPopUp} >
             <div> 
                 <div>
-                    {/* <div> Click Run to See OutPut </div> */}
                     <div> Version 1.0 </div>
                     <div> Copyright (C) 2020 by  </div>
-                    <div> Ramesh Exploida , Global Inc. </div>
+                    <div>  Veldas R Durai Inc. </div>
                     <div onClick={ () => setShowPopUp(false) }>OK</div>
                     <div onClick={ () => { setDontShowAgain(true); setShowPopUp(false); } } > Don't show again </div>
                 </div>

@@ -49,7 +49,7 @@ const App = () => {
           <WriteSpace />
           <OutputSpace run={run} />
           <FooterBar />
-          <PopUp />
+          <PopUp run={run} />
         </GlobalState>
         {/* </DispatchWriterContent.Provider>
       </WriteContent.Provider> */}

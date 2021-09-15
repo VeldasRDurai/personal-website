@@ -10,17 +10,34 @@ const Div = styled.div`
     height:168px;
     width:880px;
     border: 2px solid #0000af;
+    border-right: none;
     box-sizing:border-box;
-    overflow:auto;
+    overflow-y:scroll;
     font-family:fangsong;
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color:#0000af;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #0000af;
+        box-sizing:border-box;
+        border-left: 2px solid #00aaa8;
+        border-right: 2px solid #00aaa8;
+        border-top: 4px solid #00aaa8;
+        border-bottom: 4px solid #00aaa8;
+    }
 `;
 
 const Content = () => {
 
     const { output }  = useContext(WriteContent);
     const [ printed , setPrinted ] = useState("");
-    const lastOutput  = useRef("");
+    const [ lastOutput, setLastOutput ] = useState("");
     const refDiv = useRef(); 
+    const [ time, setTime ] = useState( new Date().toLocaleString());
 
     useEffect( () => {
         if( output.length > printed.length ){
@@ -35,7 +52,8 @@ const Content = () => {
     } , [ printed , output ] );
     useEffect( () => {
         return () => {
-            lastOutput.current = lastOutput.current + ( lastOutput.current==="" ? "" : "\n"  ) + output ;
+            setLastOutput( refDiv.current.innerText ) ;
+            setTime( new Date().toLocaleString() )
             setPrinted("") ;
         } 
     } , [ output ] );
@@ -43,15 +61,16 @@ const Content = () => {
     return(
         <Div ref={refDiv} >
                 { 
-                    lastOutput.current !== "" &&
-                    lastOutput.current.split('\n').map( ( item , index ) => <div key={index} >
-                        <div style={{ color:"white" }}>{ new Date().toLocaleString() + " : " }</div>
-                        { item }
-                    </div>)
+                    lastOutput !== "" &&
+                    lastOutput.split('\n').map( ( item , index ) =>
+                        <div key={index} style={ index%2===0 ? { color:"#fffb" }: { color:"#000b" }}>
+                            { item }
+                        </div>
+                    )
                 }
                 { 
                     printed.split('\n').map( ( item , index ) => <div key={index} >
-                        <div style={{ color:"white" }}>{ new Date().toLocaleString() + " : " }</div>
+                        <div style={{ color:"white" }}>{ time  + " : " }</div>
                         { item }
                     </div>)
                 }

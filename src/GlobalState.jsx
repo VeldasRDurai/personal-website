@@ -28,7 +28,7 @@ const reduceWriteContent = ( writeContent , action ) => {
         case "SKILL":
             return {
                 input  : "Print skill",
-                output : "*Basic programming knowledge in languages like C , C++ , Python \n* Web development skills such as HTML, JavaScript, CSS \n*Basic knowledge about front end and back end programming with React js and Node js \n*Content development ",
+                output : "*Basic programming knowledge in languages like C , Python \n* Web development skills such as HTML, JavaScript, CSS \n*Basic knowledge about front end and back end programming with React js and Node js \n*Content development ",
             } ;
         case "LANGUAGE" :
             return {
