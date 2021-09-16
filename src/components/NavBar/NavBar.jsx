@@ -13,7 +13,7 @@ const Div = styled.div`
     justify-content:space-evenly;
     span{
         color:#af0000;
-      }
+    }
 `;
 
 const NavBar = ({ setRun }) => {

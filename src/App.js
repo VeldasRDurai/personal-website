@@ -1,27 +1,13 @@
-// import React, { useReducer } from "react";
 import React, { useState } from "react";
 import styled from "styled-components";
 
 import GlobalState from "./GlobalState";
+import Cursor from "./components/Cursor/Cursor";
 import NavBar from "./components/NavBar/NavBar";
 import WriteSpace from "./components/WriteSpace/WriteSpace";
 import OutputSpace from "./components/OutputSpace/OutputSpace";
 import FooterBar from "./components/FooterBar/FooterBar";
 import PopUp from "./components/PopUp/PopUp";
-
-// export const WriteContent = React.createContext();
-// export const DispatchWriterContent = React.createContext();
-
-// const reduceWriteContent = ( writeContent , action ) => {
-//   switch(action.type){
-//     case "ABOUT ME":
-//       return "This is ABOUT ME" ;
-//     case "DETAILS" :
-//       return "This is somthing else" ;
-//     default :
-//       return writeContent ;
-//   }
-// }
 
 const Div = styled.div`
   background-color:#000d;  
@@ -33,26 +19,24 @@ const Div = styled.div`
   justify-content:center;
   position:relative;
   font-family: 'Kelly Slab', cursive;
-  // user-select: none;
+  user-select: none;
+  cursor: none;
 `;
 
 const App = () => {
-
-  // const [ writeContent , dispatchWriteContent ] = useReducer( reduceWriteContent , "Nothing" );
   const [ run , setRun ] = useState(false);
+  const [ xy, setxy ] = useState({ x:0, y:0 });
   return (
-    <Div> 
-      {/* <WriteContent.Provider value={writeContent} >
-        <DispatchWriterContent.Provider value={dispatchWriteContent} > */}
-        <GlobalState>
+    // <Div>
+    <Div onMouseMove={ e => setxy({ x:e.clientX, y:e.clientY}) }>
+      <Cursor xy={xy} /> 
+      <GlobalState>
           <NavBar setRun={setRun} />
           <WriteSpace />
           <OutputSpace run={run} />
           <FooterBar />
           <PopUp run={run} />
-        </GlobalState>
-        {/* </DispatchWriterContent.Provider>
-      </WriteContent.Provider> */}
+      </GlobalState>
     </Div>
   );
 } 
