@@ -21,7 +21,7 @@ const Div = styled.div`
     font-size: 10px;
     opacity: 0.7;
     /* color: black; */
-    animation: ${vibration} .2s 150 both alternate-reverse;
+    animation: ${vibration} .2s infinite both alternate-reverse;
     /* animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55) ; */
 `
 

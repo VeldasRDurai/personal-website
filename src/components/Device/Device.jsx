@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 
 import OverLay from "./OverLay/OverLay";
+import PopUp from "./PopUp/PopUp"
 
 const blinker = keyframes`
     0%{ background-color:#0000af; }
@@ -43,7 +44,7 @@ const Device = ({ stop }) => {
     },[]);
 
     useEffect( () => {
-        if( input.length > printed.length && !stop ){
+        if( input.length > printed.length ){
             let interval = window.setInterval( () => {
                 setPrinted( input.slice(0,printed.length+1) );
             },10);
@@ -55,10 +56,11 @@ const Device = ({ stop }) => {
         //         setPrinted("")
         //     }
         }        
-    } , [ printed , input, stop ] );
+    } , [ printed , input ] );
     return <Div >
         <OverLay printed={ printed } />
          { printed } 
+         { stop && <PopUp /> }
         </Div>;
 }
 

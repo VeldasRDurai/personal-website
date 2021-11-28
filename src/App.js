@@ -37,7 +37,7 @@ const App = () => {
   useEffect( () => {
     let interval = window.setInterval( () => {
       setStop( true );
-    },30000);
+    },10000);
     return () =>  clearInterval(interval);
   },[]);
   window.addEventListener( "resize", () => 
