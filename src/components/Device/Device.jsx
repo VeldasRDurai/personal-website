@@ -1,0 +1,65 @@
+import React, { useState, useEffect } from "react";
+import styled, { keyframes } from "styled-components";
+
+import OverLay from "./OverLay/OverLay";
+
+const blinker = keyframes`
+    0%{ background-color:#0000af; }
+    79%{ background-color:#0000af; }
+    80%{ background-color:#f00; }
+    /* 95%{ background-color:#0000af; } */
+`;
+
+const Div = styled.div`
+    height: 100vh;
+    width:100vw;
+    /* display:flex; */
+    display :${ ({stop}) => stop ? 'none' : 'flex' };
+    /* justify-content: center;
+    align-items: center; */
+    background-color: #0000af;
+    color: white;
+    font-size: .5rem;
+    font-family: 'Press Start 2P', cursive;
+    /* line-height :10px; */
+    animation: ${blinker} 1s infinite both alternate-reverse;
+
+`;
+
+const Device = ({ stop }) => {
+
+    
+    const [ input, setInput] = useState("");
+    const [ printed , setPrinted ] = useState("");
+
+    useEffect( () => { 
+        fetch('https://jsonplaceholder.typicode.com/comments').
+        then( res => res.json() ).
+            then( data => {;
+                setPrinted( JSON.stringify(data).slice(0,1000) );
+                setInput(JSON.stringify(data))
+                // console.log( JSON.stringify(data) );
+            });
+    },[]);
+
+    useEffect( () => {
+        if( input.length > printed.length && !stop ){
+            let interval = window.setInterval( () => {
+                setPrinted( input.slice(0,printed.length+1) );
+            },10);
+            return () => {
+                clearInterval(interval);
+            }
+        // } else {    
+        //     return () => {
+        //         setPrinted("")
+        //     }
+        }        
+    } , [ printed , input, stop ] );
+    return <Div >
+        <OverLay printed={ printed } />
+         { printed } 
+        </Div>;
+}
+
+export default Device;

@@ -69,7 +69,7 @@ const GlobalState = ({ children }) => {
 
     const [ writeContent , dispatchWriteContent ] = useReducer( reduceWriteContent , {
         input : "Hello World" ,
-        output : "This is me. Veldas R Durai :)"
+        output : "Hi there... I'm Veldas R Durai :)\n Select the options in above bar."
     } );
     return (
         <WriteContent.Provider value={writeContent} >

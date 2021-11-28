@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import GlobalState from "./GlobalState";
@@ -8,6 +8,7 @@ import WriteSpace from "./components/WriteSpace/WriteSpace";
 import OutputSpace from "./components/OutputSpace/OutputSpace";
 import FooterBar from "./components/FooterBar/FooterBar";
 import PopUp from "./components/PopUp/PopUp";
+import Device from "./components/Device/Device";
 
 const Div = styled.div`
   background-color:#000d;  
@@ -26,17 +27,37 @@ const Div = styled.div`
 const App = () => {
   const [ run , setRun ] = useState(false);
   const [ xy, setxy ] = useState({ x:0, y:0 });
+  
+  const [ stop, setStop ] = useState(false);
+
+  const [ switchDevice, setSwitchDevice ] = useState(true);
+  useEffect( () => {
+    window.outerWidth < 768 ? setSwitchDevice(true) : setSwitchDevice(false) ;
+  });
+  useEffect( () => {
+    let interval = window.setInterval( () => {
+      setStop( true );
+    },30000);
+    return () =>  clearInterval(interval);
+  },[]);
+  window.addEventListener( "resize", () => 
+    window.outerWidth < 768 ? setSwitchDevice(true) : setSwitchDevice(false) )
+
   return (
     // <Div>
-    <Div onMouseMove={ e => setxy({ x:e.clientX, y:e.clientY}) }>
-      <Cursor xy={xy} /> 
-      <GlobalState>
-          <NavBar setRun={setRun} />
-          <WriteSpace />
-          <OutputSpace run={run} />
-          <FooterBar />
-          <PopUp run={run} />
-      </GlobalState>
+    <Div onMouseMove={ e => setxy({ x:e.clientX, y:e.clientY}) } >
+      { switchDevice ? <Device stop={ stop } /> : 
+        <>
+          <Cursor xy={xy} /> 
+          <GlobalState>
+              <NavBar setRun={setRun} />
+              <WriteSpace />
+              <OutputSpace run={run} />
+              <FooterBar />
+              <PopUp run={run} />
+          </GlobalState>
+        </>
+      }
     </Div>
   );
 } 

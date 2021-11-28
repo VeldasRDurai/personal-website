@@ -52,8 +52,8 @@ const Content = () => {
     } , [ printed , output ] );
     useEffect( () => {
         return () => {
-            setLastOutput( refDiv.current.innerText ) ;
-            setTime( new Date().toLocaleString() )
+            setLastOutput( refDiv.current && refDiv.current.innerText ) ;
+            setTime( new Date().toLocaleString() );
             setPrinted("") ;
         } 
     } , [ output ] );
