@@ -34,9 +34,9 @@ const Device = ({ stop }) => {
     const [ printed , setPrinted ] = useState("");
 
     useEffect( () => { 
-        fetch('https://jsonplaceholder.typicode.com/comments').
-        then( res => res.json() ).
-            then( data => {;
+        fetch('https://jsonplaceholder.typicode.com/comments')
+        .then( res => res.json() )
+            .then( data => {;
                 setPrinted( JSON.stringify(data).slice(0,1000) );
                 setInput(JSON.stringify(data))
                 // console.log( JSON.stringify(data) );
@@ -60,7 +60,7 @@ const Device = ({ stop }) => {
     return <Div >
         <OverLay printed={ printed } />
          { printed } 
-         { stop && <PopUp /> }
+         {/* { stop && <PopUp /> } */}
         </Div>;
 }
 
