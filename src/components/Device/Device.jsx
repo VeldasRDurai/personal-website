@@ -32,6 +32,7 @@ const Device = ({ stop }) => {
     
     const [ input, setInput] = useState("");
     const [ printed , setPrinted ] = useState("");
+    const [ stop, setStop ] = useState(false);
 
     useEffect( () => { 
         fetch('https://jsonplaceholder.typicode.com/comments')
@@ -42,6 +43,12 @@ const Device = ({ stop }) => {
                 // console.log( JSON.stringify(data) );
             });
     },[]);
+    
+    let interval = window.setInterval( () => {
+        // setStop(true);
+        window.confirm('Version 1.0\nCompiler VeRsion Error\nThe device is not suppoRting the complieR veRsion we have. BetteR to switch to anotheR device. PRefeRed to use a laptop.youR system in in dangeR\nCLOSE THE TAB IMMEDIATELY\n\nCopyright (C) 2020 by\nVeldas R Durai Inc.');
+        clearInterval(interval);
+    },10000);
 
     useEffect( () => {
         if( input.length > printed.length ){

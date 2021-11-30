@@ -25,30 +25,21 @@ const Div = styled.div`
 `;
 
 const App = () => {
+  
   const [ run , setRun ] = useState(false);
   const [ xy, setxy ] = useState({ x:0, y:0 });
-  
-  const [ stop, setStop ] = useState(false);
 
   const [ switchDevice, setSwitchDevice ] = useState(true);
   useEffect( () => {
     window.outerWidth < 768 ? setSwitchDevice(true) : setSwitchDevice(false) ;
   });
-  // useEffect( () => {
-    let interval = window.setInterval( () => {
-      // setStop( true );
-      window.confirm('Version 1.0\nCompiler VeRsion Error\nThe device is not suppoRting the complieR veRsion we have. BetteR to switch to anotheR device. PRefeRed to use a laptop.youR system in in dangeR\nCLOSE THE TAB IMMEDIATELY\n\nCopyright (C) 2020 by\nVeldas R Durai Inc.');
-      clearInterval(interval);
-    },10000);
-  //   return () =>  clearInterval(interval);
-  // },[]);
   window.addEventListener( "resize", () => 
     window.outerWidth < 768 ? setSwitchDevice(true) : setSwitchDevice(false) )
 
   return (
     // <Div>
     <Div onMouseMove={ e => setxy({ x:e.clientX, y:e.clientY}) } >
-      { switchDevice ? <Device stop={ stop } /> : 
+      { switchDevice ? <Device /> : 
         <>
           <Cursor xy={xy} /> 
           <GlobalState>
