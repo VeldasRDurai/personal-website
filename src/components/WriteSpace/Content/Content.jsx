@@ -80,6 +80,36 @@ const Content = () => {
                 <div>{";"}</div>
             </div>
             <div> {"}"} </div>
+
+            {/* <div>{ "#include <iostream>" } </div>
+            <div>{ "#include <fstream>" } </div>
+            <div>{ "using namespace std;" } </div>
+
+            <div>{ "int main()" } </div>
+            <div>{ "{" } </div>
+            <div>
+                <div>{"char strBuffer[100];"}</div>
+                <div>{`ifstream inputFile("${printed}");`}</div>
+
+                <div>{"if (!inputFile) {"}</div>
+                <div>
+                    <div>{'cout << "File opening failed.\n";'}</div>
+                    <div>{'return 1;'}</div>
+                </div>
+                <div>{"}"}</div>
+
+                <div>{"while (inputFile) {"}</div>
+                <div>
+                    <div>{"inputFile.getline(strBuffer, 100);"}</div>
+                    <div>{"cout << strBuffer << endl;"}</div>
+                </div>
+                <div>{"}"}</div>
+
+                <div>{"inputFile.close();"}</div>
+
+                <div>{"return 0;"}</div>
+            </div>
+            <div>{"}"}</div> */}
         </Div>
     );
 }

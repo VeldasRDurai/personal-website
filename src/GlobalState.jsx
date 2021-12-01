@@ -43,7 +43,7 @@ const reduceWriteContent = ( writeContent , action ) => {
         case "LINKS" :
             return {
                 input  : "Print links",
-                output : "PROJECTS : \n1.MESSENGER APPLICATION : A community messenger real-time web application that makes use of a Gmail account as users. https://archipelago-messenger.herokuapp.com/ \n2.YOUTUBE TRANSCRIPT DOWNLOADER : A Web application for obtaining all available transcript of a Youtube video using video link. https://transtuber.herokuapp.com/\n 3.NOTE APPLICATION : https://to-do-app-das.herokuapp.com/ \n4.WHATSAPP EXPORTED CHAT VIEWER : A web application to convert whatsapp exported chat content in text format to app user interface form. https://veldasrdurai.github.io/whatsapp-exported-message-viewer/\n And many other... \nFor more project, Cheak out my github account. Contact -> Social id -> GitHub",
+                output : "PROJECTS : \n1.MESSENGER APPLICATION : A community messenger real-time web application that makes use of a Gmail account as users. https://archipelago-messenger.herokuapp.com/ \n2.YOUTUBE TRANSCRIPT DOWNLOADER : A Web application for obtaining all available transcript of a Youtube video using video link. https://transtuber.herokuapp.com/\n 3.NOTE APPLICATION : https://to-do-app-das.herokuapp.com/ \n4.WHATSAPP EXPORTED CHAT VIEWER : A web application to convert whatsapp exported chat content in text format to app user interface form. https://veldasrdurai.github.io/whatsapp-exported-message-viewer/\n react-calculator, tic-tac-toe, snake-game, stone-paper-scissor, url-shortner And many other... \nFor more project, Cheak out my github account. Contact -> Social id -> GitHub",
             } ;
         case "ADDRESS":
             return {
@@ -58,7 +58,7 @@ const reduceWriteContent = ( writeContent , action ) => {
         case "SOCIAL ID":
             return {
                 input  : "Print social id",
-                output : "GITHUB : https://github.com/veldasrdurai",
+                output : "GitHub : https://github.com/veldasrdurai \nLinkedIn : https://www.linkedin.com/in/veldasrdurai/",
             } ;
         default :
             return writeContent ;
