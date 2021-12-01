@@ -27,7 +27,7 @@ const Div = styled.div`
 
 `;
 
-const Device = ({ stop }) => {
+const Device = () => {
 
     
     const [ input, setInput] = useState("");

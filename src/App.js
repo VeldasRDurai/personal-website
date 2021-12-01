@@ -25,11 +25,11 @@ const Div = styled.div`
 `;
 
 const App = () => {
-  
+
   const [ run , setRun ] = useState(false);
   const [ xy, setxy ] = useState({ x:0, y:0 });
 
-  const [ switchDevice, setSwitchDevice ] = useState(true);
+  const [ switchDevice, setSwitchDevice ] = useState( false );
   useEffect( () => {
     window.outerWidth < 768 ? setSwitchDevice(true) : setSwitchDevice(false) ;
   });
